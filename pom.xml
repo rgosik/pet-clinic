@@ -14,7 +14,7 @@
     </parent>
     <groupId>com.springframewok</groupId>
     <artifactId>pet-clinic</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>y</version>
     <name>pet-clinic</name>
     <description>Pet clinic project</description>
 
@@ -45,7 +45,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/rgosik/pet-clinic.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>pet-clinic-y</tag>
     </scm>
 
 </project>
