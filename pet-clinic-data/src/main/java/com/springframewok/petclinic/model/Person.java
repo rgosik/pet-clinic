@@ -3,7 +3,7 @@ package com.springframewok.petclinic.model;
 public class Person extends BaseEntity{
 
     private String firstName;
-    private String lastNmae;
+    private String lastName;
 
     public String getFirstName() {
         return firstName;
@@ -13,11 +13,11 @@ public class Person extends BaseEntity{
         this.firstName = firstName;
     }
 
-    public String getLastNmae() {
-        return lastNmae;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastNmae(String lastNmae) {
-        this.lastNmae = lastNmae;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
