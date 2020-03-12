@@ -1,5 +1,14 @@
 D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\model\Owner.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\services\OwnerService.java
 D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\model\Vet.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\services\map\VetServiceMap.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\services\CrudService.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\model\Pet.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\model\BaseEntity.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\services\map\AbstractMapService.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\services\VetService.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\services\PetService.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\services\map\OwnerServiceMap.java
+D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\services\map\PetServiceMap.java
 D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\model\PetType.java
 D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\model\Person.java
-D:\PERSONAL\workspace\UDEMY\Spring\pet-clinic\pet-clinic-data\src\main\java\com\springframewok\petclinic\model\Pet.java

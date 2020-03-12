@@ -1,1 +1,5 @@
+com\springframewok\petclinic\controllers\OwnerController.class
+com\springframewok\petclinic\controllers\IndexController.class
+com\springframewok\petclinic\controllers\VetController.class
 com\springframewok\petclinic\PetClinicApplication.class
+com\springframewok\petclinic\bootstrap\DataLoader.class

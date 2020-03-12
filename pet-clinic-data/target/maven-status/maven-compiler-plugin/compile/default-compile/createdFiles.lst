@@ -1,5 +1,14 @@
-com\springframewok\petclinic\model\PetType.class
 com\springframewok\petclinic\model\Vet.class
+com\springframewok\petclinic\services\map\AbstractMapService.class
 com\springframewok\petclinic\model\Owner.class
-com\springframewok\petclinic\model\Person.class
 com\springframewok\petclinic\model\Pet.class
+com\springframewok\petclinic\services\CrudService.class
+com\springframewok\petclinic\services\VetService.class
+com\springframewok\petclinic\services\map\PetServiceMap.class
+com\springframewok\petclinic\model\BaseEntity.class
+com\springframewok\petclinic\services\PetService.class
+com\springframewok\petclinic\model\PetType.class
+com\springframewok\petclinic\services\map\OwnerServiceMap.class
+com\springframewok\petclinic\services\OwnerService.class
+com\springframewok\petclinic\model\Person.class
+com\springframewok\petclinic\services\map\VetServiceMap.class
