@@ -1,6 +1,6 @@
 package com.springframewok.petclinic.model;
 
-public class Speciality extends BaseEntity {
+public class Specialty extends BaseEntity {
 
     private String description;
 
