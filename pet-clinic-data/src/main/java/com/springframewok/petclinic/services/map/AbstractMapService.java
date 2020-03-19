@@ -1,54 +1,47 @@
 package com.springframewok.petclinic.services.map;
 
 import com.springframewok.petclinic.model.BaseEntity;
+import com.springframewok.petclinic.services.CrudService;
 
 import java.util.*;
 
 
-public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+public abstract class AbstractMapService<T extends BaseEntity> implements CrudService<T> {
+    protected final Map<Long, T> map = new HashMap<>();
 
-    protected Map<Long, T> map = new HashMap<>();
-
-    Set<T> findAll() {
+    @Override
+    public Set<T> findAll() {
         return new HashSet<>(map.values());
     }
 
-    T findById(ID id) {
+    @Override
+    public T findById(Long id) {
         return map.get(id);
     }
 
-    T save(T object) {
-
-        if (object != null) {
-            if (object.getId() == null) {
-                object.setId(getNextId());
-            }
-
-            map.put(object.getId(), object);
-        } else {
-            throw new RuntimeException("Object cannot be null");
-        }
-
-        return object;
-    }
-
-    void deleteById(ID id) {
-        map.remove(id);
-    }
-
-    void delete(T object) {
+    @Override
+    public void delete(T object) {
         map.entrySet().removeIf(entry -> entry.getValue().equals(object));
     }
 
-    private Long getNextId() {
-        Long nextId = null;
+    @Override
+    public void deleteById(Long id) {
+        map.remove(id);
+    }
 
-        try {
-            nextId = Collections.max(map.keySet()) + 1;
-        } catch (NoSuchElementException e) {
-            nextId = 1L;
+    @Override
+    public T save(T object) {
+        if (object == null) {
+            throw new IllegalStateException("Can't save null!");
+        } else if (object.getId() == null) {
+            object.setId(getNextId());
         }
 
-        return nextId;
+        map.put(object.getId(), object);
+        return object;
+    }
+
+    private Long getNextId() {
+        return map.keySet().isEmpty() ? 1L : Collections.max(map.keySet()) + 1;
     }
 }
