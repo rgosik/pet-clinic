@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "visits")
-public class Visit {
+public class Visit extends BaseEntity{
 
     private LocalDate date;
     private String description;
