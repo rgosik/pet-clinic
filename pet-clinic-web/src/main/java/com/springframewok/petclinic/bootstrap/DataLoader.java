@@ -2,10 +2,7 @@ package com.springframewok.petclinic.bootstrap;
 
 
 import com.springframewok.petclinic.model.*;
-import com.springframewok.petclinic.services.OwnerService;
-import com.springframewok.petclinic.services.PetTypeService;
-import com.springframewok.petclinic.services.SpecialtyService;
-import com.springframewok.petclinic.services.VetService;
+import com.springframewok.petclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -18,18 +15,21 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialtyService specialtyService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+                      SpecialtyService specialtyService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialtyService = specialtyService;
+        this.visitService = visitService;
     }
 
     @Override
     public void run(String... args) throws Exception {
 
-        if(petTypeService.findAll().isEmpty()){
+        if (petTypeService.findAll().isEmpty()) {
             loadData();
         }
     }
@@ -86,6 +86,13 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(jhonsPet);
 
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(jhonsPet);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Nice kiitten check");
+
+        visitService.save(catVisit);
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Keke");
