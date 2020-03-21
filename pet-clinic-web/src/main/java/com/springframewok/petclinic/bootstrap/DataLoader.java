@@ -7,6 +7,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -35,79 +37,55 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
-        PetType dog = new PetType();
-        dog.setName("Dog");
+        PetType dog = PetType.builder().name("Dog").build();
         PetType savedDogType = petTypeService.save(dog);
 
-        PetType cat = new PetType();
-        cat.setName("Cat");
+        PetType cat = PetType.builder().name("Cat").build();
         PetType savedCatType = petTypeService.save(cat);
 
-        Specialty radiology = new Specialty();
-        radiology.setDescription("Radiology");
+        Specialty radiology = Specialty.builder().description("Radiology").build();
         Specialty savedRadiology = specialtyService.save(radiology);
 
-        Specialty surgery = new Specialty();
-        surgery.setDescription("Surgery");
+        Specialty surgery = Specialty.builder().description("Surgery").build();
         Specialty savedSurgery = specialtyService.save(surgery);
 
-        Specialty dentistry = new Specialty();
-        dentistry.setDescription("Dentistry");
+        Specialty dentistry = Specialty.builder().description("Dentistry").build();
         Specialty savedDentistry = specialtyService.save(dentistry);
 
-        Owner owner1 = new Owner();
-        owner1.setFirstName("Bob");
-        owner1.setLastName("Jet");
-        owner1.setAddress("Lelus");
-        owner1.setCity("Miami");
-        owner1.setTelephone("12125677");
+        Set<Pet> pets1 = new HashSet<>();
+        Owner owner1 = Owner.builder().firstName("Bob").lastName("Jet").address("Tetrus").city("Miami").
+                telephone("12125677").pets(pets1).build();
 
-/*        Owner owner1 = Owner.builder().firstName("Bob").lastName("Jet").address("Tetrus").city("Miami").
-                telephone("12125677").build();*/
-
-        Pet bobsPet = new Pet();
-        bobsPet.setPetType(savedDogType);
-        bobsPet.setOwner(owner1);
-        bobsPet.setBirthDate(LocalDate.now());
-        bobsPet.setName("Chili");
-        owner1.getPets().add(bobsPet);
+        Pet bobsPet1 = Pet.builder().petType(savedDogType).owner(owner1).birthDate(LocalDate.now()).
+                name("Chili").build();
+        pets1.add(bobsPet1);
 
         ownerService.save(owner1);
 
-        Owner owner2 = new Owner();
-        owner2.setFirstName("Jhon");
-        owner2.setLastName("cena");
-        owner2.setAddress("Brooklyn");
-        owner2.setCity("New York");
-        owner2.setTelephone("45678900");
+        Set<Pet> pets2 = new HashSet<>();
+        Owner owner2 = Owner.builder().firstName("Jack").lastName("Smith").address("Kekus").city("Warsaw").
+                telephone("789895968").pets(pets2).build();
 
-        Pet jhonsPet = new Pet();
-        jhonsPet.setPetType(savedCatType);
-        jhonsPet.setOwner(owner2);
-        jhonsPet.setBirthDate(LocalDate.now());
-        jhonsPet.setName("Mili");
-        owner2.getPets().add(jhonsPet);
+        Pet jacksPet1 = Pet.builder().petType(savedCatType).owner(owner2).birthDate(LocalDate.now()).
+                name("Meme").build();
+        pets2.add(jacksPet1);
 
         ownerService.save(owner2);
 
-        Visit catVisit = new Visit();
-        catVisit.setPet(jhonsPet);
-        catVisit.setDate(LocalDate.now());
-        catVisit.setDescription("Nice kiitten check");
+        Visit catVisit = Visit.builder().pet(jacksPet1).date(LocalDate.now()).description("Nice kitten check").build();
 
         visitService.save(catVisit);
 
-        Vet vet1 = new Vet();
-        vet1.setFirstName("Keke");
-        vet1.setLastName("Let");
-        vet1.getSpecialities().add(savedRadiology);
+        Set<Specialty> vet1Specialties = new HashSet<>();
+        vet1Specialties.add(savedRadiology);
+        Vet vet1 = Vet.builder().firstName("Keke").lastName("Let").specialties(vet1Specialties).build();
 
         vetService.save(vet1);
 
-        Vet vet2 = new Vet();
-        vet2.setFirstName("Troy");
-        vet2.setLastName("Pler");
-        vet2.getSpecialities().add(savedSurgery);
+        Set<Specialty> vet2Specialties = new HashSet<>();
+        vet2Specialties.add(savedDentistry);
+        vet2Specialties.add(savedSurgery);
+        Vet vet2 = Vet.builder().firstName("Troy").lastName("Pler").specialties(vet2Specialties).build();
 
         vetService.save(vet2);
     }
