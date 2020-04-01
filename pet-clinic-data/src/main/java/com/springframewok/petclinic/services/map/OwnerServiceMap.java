@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Profile({"default", "map"})
-public class OwnerServiceMap extends AbstractMapService<Owner> implements OwnerService {
+public class OwnerServiceMap extends AbstractServiceMap<Owner> implements OwnerService {
 
     private final PetTypeService petTypeService;
     private final PetService petService;
@@ -21,19 +21,27 @@ public class OwnerServiceMap extends AbstractMapService<Owner> implements OwnerS
 
     @Override
     public Owner save(Owner object) {
-        object.getPets().forEach(pet -> {
-            if (pet.getId() == null) {
-                petService.save(pet);
-            }
-            if (pet.getPetType().getId() == null) {
-                petTypeService.save(pet.getPetType());
-            }
-        });
+
+        if (object.getPets() != null) {
+            object.getPets().forEach(pet -> {
+                if (pet.getId() == null) {
+                    petService.save(pet);
+                }
+                if (pet.getPetType().getId() == null) {
+                    petTypeService.save(pet.getPetType());
+                }
+            });
+        }
         return super.save(object);
     }
 
     @Override
     public Owner findByLastName(String lastName) {
-        return null;
+        return this.findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+                .findFirst()
+                .orElse(null);
     }
+
 }

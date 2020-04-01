@@ -6,7 +6,7 @@ import com.springframewok.petclinic.services.CrudService;
 import java.util.*;
 
 
-public abstract class AbstractMapService<T extends BaseEntity> implements CrudService<T> {
+public abstract class AbstractServiceMap<T extends BaseEntity> implements CrudService<T> {
     protected final Map<Long, T> map = new HashMap<>();
 
     @Override
