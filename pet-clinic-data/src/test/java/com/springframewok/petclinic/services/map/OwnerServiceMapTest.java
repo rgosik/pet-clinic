@@ -1,14 +1,9 @@
 package com.springframewok.petclinic.services.map;
 
 import com.springframewok.petclinic.model.Owner;
-import com.springframewok.petclinic.model.Pet;
-import com.springframewok.petclinic.model.PetType;
-import com.springframewok.petclinic.services.PetService;
-import com.springframewok.petclinic.services.PetTypeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
